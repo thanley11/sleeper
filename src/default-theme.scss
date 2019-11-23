@@ -1,0 +1,5 @@
+$eg-primary: mat-palette($mat-indigo, 800, 300, 900);
+$eg-accent: mat-palette($mat-light-blue);
+$eg-warn: mat-palette($mat-deep-orange, A200);
+
+$eg-theme: mat-light-theme($eg-primary, $eg-accent, $eg-warn);

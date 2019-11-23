@@ -1,0 +1,32 @@
+{
+    "users": [
+      {
+        "id": 1,
+        "username": "bruno",
+        "email": "bruno@email.com",
+        "password": "bruno",
+        "scope":"urn:ngrxeg:admin"
+      },
+      {
+        "id": 2,
+        "username": "techie",
+        "email": "techie@email.com",
+        "password": "techie",
+        "scope":"urn:ngrxeg:user"
+      },
+      {
+        "id": 3,
+        "username": "nilson",
+        "email": "nilson@email.com",
+        "password": "nilson",
+        "scope":"urn:ngrxeg:user"
+      },
+      {
+        "id": 4,
+        "username": "admin",
+        "email": "nilson@email.com",
+        "password": "123456",
+        "scope":"urn:ngrxeg:admin"
+      }
+    ]
+}
