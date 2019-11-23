@@ -1,11 +1,11 @@
-import { Observable } from 'rxjs';
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as gridActions from '../store/grid.actions';
-import * as chatActions from '../store/chat.actions';
+import { Observable } from 'rxjs';
 import * as fromRoot from '../../reducers/index';
+import { ChatMessage } from '../message.model';
 import { Player } from '../player.model';
-import { Message, ChatMessage } from '../message.model';
+import * as chatActions from '../store/chat.actions';
+import * as gridActions from '../store/grid.actions';
 
 @Component({
   selector: 'eg-grid',

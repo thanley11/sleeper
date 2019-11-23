@@ -1,5 +1,3 @@
-<!-- <div *ngFor="let player of players">{{player.last_name}}, {{player.first_name}}</div> -->
-
 <main class="chat-window">
         <header class="chat-header">
           <h1>Chat</h1>
@@ -10,14 +8,8 @@
             <li class="user-message" *ngFor="let message of messages | slice:-10">
               <img [src]="sanitize(message.player.avatar)"/>
               <span class="user-id">{{ message?.player?.first_name }} {{message?.player?.last_name}}</span>
-              <!-- <span class="user-id">{{ message.senderId }}</span> -->
               <span class="user-message">{{ message.msg }}</span>
             </li>
           </ul>
         </section>
-        <!-- <footer class="chat-footer">
-          <form (ngSubmit)='sendMessage()'>
-            <input placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="message">
-          </form>
-        </footer> -->
-      </main>
+</main>

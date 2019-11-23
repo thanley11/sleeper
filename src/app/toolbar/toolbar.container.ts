@@ -1,6 +1,5 @@
-import { Component, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Store, select } from '@ngrx/store';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import * as fromRoot from '../reducers';
 import * as SidebarActions from '../sidebar/store/sidebar.actions';
 
@@ -13,10 +12,8 @@ import * as SidebarActions from '../sidebar/store/sidebar.actions';
 
 })
 export class ToolbarContainerComponent {
-  // public loggedIn$: Observable<boolean>;
   constructor(
     private store: Store<fromRoot.AppState>) { 
-      // this.loggedIn$ = store.pipe(select(fromRoot.isLoggedIn));
   }
 
   openSidenav() {

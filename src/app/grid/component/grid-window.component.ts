@@ -1,7 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { Player } from '../player.model';
-import { Message, ChatMessage } from '../message.model';
-import {DomSanitizer} from '@angular/platform-browser';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { ChatMessage } from '../message.model';
 
 @Component({
   selector: 'eg-grid-window',
