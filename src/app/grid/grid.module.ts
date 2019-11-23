@@ -1,7 +1,7 @@
-import { GridCardComponent } from './component/grid-cards.component';
+import { GridWindowComponent } from './component/grid-window.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { GridComponent } from './component/grid.component';
 import { PlayersService } from './services/players.service';
@@ -9,11 +9,12 @@ import { AppMaterialModule } from '../material/material.module';
 import { EffectsModule } from '@ngrx/effects';
 import { GridEffects } from './store/grid.effects';
 import { HttpClientModule } from '@angular/common/http';
+import { GridInputComponent } from './component/grid-input.component';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule,
+        ReactiveFormsModule,
         HttpClientModule,
         AppMaterialModule,
         EffectsModule.forFeature([GridEffects])
@@ -23,7 +24,8 @@ import { HttpClientModule } from '@angular/common/http';
     ],
     declarations: [
         GridComponent,
-        GridCardComponent
+        GridWindowComponent,
+        GridInputComponent
     ],
     exports: [
     ]

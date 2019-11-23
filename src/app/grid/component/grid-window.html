@@ -1,0 +1,23 @@
+<!-- <div *ngFor="let player of players">{{player.last_name}}, {{player.first_name}}</div> -->
+
+<main class="chat-window">
+        <header class="chat-header">
+          <h1>Chat</h1>
+          <span class="participants"></span>
+        </header>
+        <section class="chat-session">
+          <ul class="message-list">
+            <li class="user-message" *ngFor="let message of messages | slice:-10">
+              <!-- <span class="avatar">{{ user.avatar }}</span> -->
+              <!-- <span class="user-id">{{ user.first_name }} {{user.last_name }}</span> -->
+              <!-- <span class="user-id">{{ message.senderId }}</span> -->
+              <span>{{ message.msg }}</span>
+            </li>
+          </ul>
+        </section>
+        <!-- <footer class="chat-footer">
+          <form (ngSubmit)='sendMessage()'>
+            <input placeholder="Type a message. Hit Enter to send" type="text" name="message" [(ngModel)]="message">
+          </form>
+        </footer> -->
+      </main>

@@ -1,18 +1,6 @@
 export class Player {
     public id: string;
-    public rank: number;
-    public name: string;
-    public position: Position;
-    public bye: number;
-    public url: string;
-    public team: string;
+    public first_name: string;
+    public last_name: string;
+    public avatar: string;
   }
-
-export enum Position {
-    QB,
-    RB,
-    WR,
-    TE,
-    DEF,
-    K
-}

@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store';
 export enum ActionTypes {
     GET_PLAYERS = '[Grid] Get Players',
     GET_PLAYERS_SUCCESS = '[Grid] Get Players Success',
-    GET_PLAYERS_FAIL = '[Grid] Get Players Fail'
+    GET_PLAYERS_FAIL = '[Grid] Get Players Fail',
 };
 
 export class GetPlayers implements Action {
@@ -23,4 +23,4 @@ export class GetPlayersFail implements Action {
 export type GridActions
   = GetPlayers |
     GetPlayersSuccess |
-    GetPlayersFail
+    GetPlayersFail 

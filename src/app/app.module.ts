@@ -13,10 +13,15 @@ import { AppMaterialModule } from './material/material.module';
 import { SidebarModule } from './sidebar/sidebar.module';
 import { GridModule } from './grid/grid.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarContainerComponent } from './toolbar/toolbar.container';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { GridEffects } from './grid/store/grid.effects';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ToolbarContainerComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -24,6 +29,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     SidebarModule,
     GridModule,
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    }),
     StoreModule.forRoot(reducers, {
       metaReducers, 
       runtimeChecks: {
@@ -33,7 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     AppMaterialModule,
-    EffectsModule.forRoot([AppEffects])
+    EffectsModule.forRoot([AppEffects, GridEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,6 +21,7 @@ export function reducer(state = initialState, action: grid.GridActions): State {
           ...state
         }
       );
+  
     default:
       return state;
   }

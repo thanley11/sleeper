@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 
 import { SidebarComponent } from './component/sidebar.component';
-// import { SidebarService } from './services/sidebar.service';
 import { AppMaterialModule } from '../material/material.module';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { AppMaterialModule } from '../material/material.module';
         AppRoutingModule
     ],
     providers: [
-        // SidebarService
     ],
     declarations: [
         SidebarComponent
@@ -29,7 +27,6 @@ export class SidebarModule {
         return {
             ngModule: SidebarModule,
             providers: [
-                // SidebarService
             ]
         };
     }

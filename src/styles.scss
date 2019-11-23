@@ -4,7 +4,7 @@
 
 @include mat-core();
 
-$eg-app-primary: mat-palette($mat-indigo);
+$eg-app-primary: mat-palette($mat-grey, 800, 700, 900);
 $eg-app-accent:  mat-palette($mat-pink, A200, A100, A400);
 
 $eg-app-warn:    mat-palette($mat-red);
