@@ -4,7 +4,7 @@ export class Message {
     public id: string;
     public senderId: string;
     public parentMsgId: string;
-    public text: string;
+    public msg: string;
     public isGif: boolean;
   }
 
@@ -12,7 +12,7 @@ export class Message {
     public id: string;
     public player: Player
     public parentMsgId: string;
-    public text: string;
+    public msg: string;
     public isGif: boolean;
   }
 

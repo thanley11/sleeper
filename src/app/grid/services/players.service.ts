@@ -14,6 +14,7 @@ import { Message } from '../message.model';
 export class PlayersService {
 
     private _url: string = `${environment.apiUrl}`
+    private _giphyUrl: string = 'http://api.giphy.com/v1/gifs/search?api_key=Awq5410QQl0416nJogqlsinldM2s9PCA&q='
 
     constructor(private _http: HttpClient) { }
 
@@ -34,5 +35,13 @@ export class PlayersService {
 
         return this._http.put<Message>(url, msg);
     }
+
+    public addGif(msg: Message): Observable<any> {
+
+        var apiLink = this._giphyUrl + msg.msg.trim();
+        return this._http.get<any>(apiLink);
+
+    }
+     
 }
 

@@ -4,6 +4,7 @@ import { Message } from '../message.model';
 
 export enum ActionTypes {
     SUBMIT_MSG = '[Grid] Submit Message',
+    SUBMIT_GIF = '[Grid] Submit Gif',
     GET_MSGS  = '[Grid] Get Messages',
     GET_MSG_SUCCESS  = '[Grid] Get Messages Success',
     GET_MSG_FAIL  = '[Grid] Get Messages Fail',
@@ -23,10 +24,15 @@ export class GetMessages implements Action {
     readonly type = ActionTypes.SUBMIT_MSG;
     constructor(public payload: Message) { }
   }
+
+  export class SubmitGif implements Action {
+    readonly type = ActionTypes.SUBMIT_GIF;
+    constructor(public payload: Message) { }
+  }
   
   export class SubmitMessageSuccess implements Action {
     readonly type = ActionTypes.SUBMIT_MSG_SUCCESS;
-    constructor() { }
+    constructor(public payload: Message) { }
   }
   
   export class GetMessagesFail implements Action {
@@ -37,4 +43,5 @@ export class GetMessages implements Action {
   = SubmitMessage | 
     GetMessagesSuccess |
     GetMessagesFail |
-    SubmitMessageSuccess
+    SubmitMessageSuccess |
+    SubmitGif

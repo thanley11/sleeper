@@ -8,6 +8,7 @@ import { PlayersService } from './../services/players.service';
 import * as grid from './grid.actions';
 import * as chat from './chat.actions';
 import { Message } from '../message.model';
+import { SubmitGif, SubmitMessage } from './chat.actions';
 
 
 @Injectable()
@@ -37,10 +38,25 @@ export class GridEffects {
      @Effect()
      submitMessage$: Observable<Action> = this.actions$.pipe(
       ofType(chat.ActionTypes.SUBMIT_MSG),
-      switchMap((action: Message) => {
-         return this.playersService.addMessage(action)
+      switchMap((action: SubmitMessage) => {
+         return this.playersService.addMessage(action.payload)
          .pipe(
-           map(() => new chat.SubmitMessageSuccess()),
+           map(() => new chat.SubmitMessageSuccess(action.payload)),
+           catchError(error => of(new chat.GetMessagesFail())))
+     }
+     ));
+
+     @Effect()
+     submitGif$: Observable<Action> = this.actions$.pipe(
+      ofType(chat.ActionTypes.SUBMIT_GIF),
+      switchMap((action: SubmitGif) => {
+         return this.playersService.addGif(action.payload)
+         .pipe(
+           map((result) => {
+             console.log(result[0].embed_url);
+             let msg = <Message>{id: '123', msg: result[0].embed_url}
+             return new chat.SubmitMessageSuccess(msg);
+           }),
            catchError(error => of(new chat.GetMessagesFail())))
      }
      ));

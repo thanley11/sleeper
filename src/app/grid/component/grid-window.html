@@ -8,10 +8,10 @@
         <section class="chat-session">
           <ul class="message-list">
             <li class="user-message" *ngFor="let message of messages | slice:-10">
-              <!-- <span class="avatar">{{ user.avatar }}</span> -->
-              <!-- <span class="user-id">{{ user.first_name }} {{user.last_name }}</span> -->
+              <img [src]="sanitize(message.player.avatar)"/>
+              <span class="user-id">{{ message?.player?.first_name }} {{message?.player?.last_name}}</span>
               <!-- <span class="user-id">{{ message.senderId }}</span> -->
-              <span>{{ message.msg }}</span>
+              <span class="user-message">{{ message.msg }}</span>
             </li>
           </ul>
         </section>

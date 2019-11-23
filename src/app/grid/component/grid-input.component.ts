@@ -1,11 +1,10 @@
-import { Observable } from 'rxjs';
-import { Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import * as chatActions from '../store/chat.actions';
-import * as fromRoot from '../../reducers/index';
-import { Player } from '../player.model';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import * as fromRoot from '../../reducers/index';
 import { Message } from '../message.model';
+import { Player } from '../player.model';
+import * as chatActions from '../store/chat.actions';
 
 @Component({
   selector: 'eg-grid-input',
@@ -25,8 +24,14 @@ export class GridInputComponent implements OnInit {
 
   submit(){
     if(this.chatForm.valid){
-      let msg = <Message>{id: this.currentUser.id, text: this.chatForm.value, isGif: false, parentMsgId: null }
-      this.store.dispatch(new chatActions.SubmitMessage(msg));
+      let msg = <Message>{id: this.currentUser.id, msg: this.chatForm.value, isGif: false, parentMsgId: null }
+      if (/giphy/gi.test(this.chatForm.value)){
+        msg.msg = msg.msg.replace(/\/giphy/g,'');
+        this.store.dispatch(new chatActions.SubmitGif(msg));
+      } else {
+        this.store.dispatch(new chatActions.SubmitMessage(msg));
+      }
+    
     }
   }
 }

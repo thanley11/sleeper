@@ -43,5 +43,5 @@ export const getMessages = createSelector(getMessageState, fromMessages.selectAl
 export const getMessagesByPlayer = createSelector(getPlayers, getMessages,
   (players: Player[], messages: Message[]) =>
   {
-    return messages.map(x => <ChatMessage>{id: x.id, player: players[0], parentMsgId: x.parentMsgId, text: x.text, isGif: x.isGif });
+    return messages.map(x => <ChatMessage>{id: x.id, player: players[0], parentMsgId: x.parentMsgId, msg: x.msg, isGif: x.isGif });
   });
