@@ -52,9 +52,9 @@ export class GridEffects {
       switchMap((action: SubmitGif) => {
          return this.playersService.addGif(action.payload)
          .pipe(
-           map((result) => {
-             console.log(result[0].embed_url);
-             let msg = <Message>{id: '123', msg: result[0].embed_url}
+           map((result: any) => {
+             let message: string = result.data[0].embed_url
+             let msg = {...action.payload, msg: message}
              return new chat.SubmitMessageSuccess(msg);
            }),
            catchError(error => of(new chat.GetMessagesFail())))
@@ -62,6 +62,13 @@ export class GridEffects {
      ));
 
 
+     @Effect()
+     submitMsgSuccess$: Observable<Action> = this.actions$.pipe(
+      ofType(chat.ActionTypes.SUBMIT_MSG_SUCCESS),
+      map(() => {
+        return new chat.GetMessages();
+     }
+     ));
 
   constructor(
     private actions$: Actions,

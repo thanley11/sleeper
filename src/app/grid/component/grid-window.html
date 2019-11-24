@@ -6,9 +6,14 @@
         <section class="chat-session">
           <ul class="message-list">
             <li class="user-message" *ngFor="let message of messages | slice:-10">
-              <img [src]="sanitize(message.player.avatar)"/>
+              <img [src]="sanitizeAvatar(message)"/>
               <span class="user-id">{{ message?.player?.first_name }} {{message?.player?.last_name}}</span>
-              <span class="user-message">{{ message.msg }}</span>
+              <ng-container *ngIf="!message?.isGif; else isGif">
+                <span class="user-message">{{ message.msg }}</span>
+              </ng-container>
+              <ng-template #isGif>
+                <span class="user-message"><img [src]="sanitizeGif(message)"/></span> 
+              </ng-template>
             </li>
           </ul>
         </section>

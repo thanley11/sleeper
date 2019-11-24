@@ -3,6 +3,7 @@
     placeholder="Enter Text"
     autocomplete="off"
     [formControl]="chatForm"
+    (keyup.enter)="submit()"
     />
     <button type="submit"
     mat-flat-button

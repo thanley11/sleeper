@@ -7,6 +7,7 @@ import { Player } from '../player.model';
 import * as chatActions from '../store/chat.actions';
 import * as gridActions from '../store/grid.actions';
 
+
 @Component({
   selector: 'eg-grid',
   template: `
@@ -24,7 +25,10 @@ export class GridComponent implements OnInit {
   currentUser: Player;
   constructor(private store: Store<fromRoot.AppState>) {
     this.messagesByPlayer$ = store.select(fromRoot.getMessagesByPlayer);
-    this.currentUser = <Player>{ id: '1234', first_name: 'Tom', last_name: 'Hanley', avatar: ''  }
+    this.currentUser = <Player>{ id: 'caa23400-1e13-4aa4-aa7c-1cf69f6c6bab', 
+    first_name: 'Tom', 
+    last_name: 'Hanley',
+    avatar: 'https://robohash.org/suscipiterroraliquam.jpg?size=25x25&set=set1'  }
   }
 
   ngOnInit() {
@@ -32,3 +36,4 @@ export class GridComponent implements OnInit {
     this.store.dispatch(new chatActions.GetMessages());
   }
 }
+

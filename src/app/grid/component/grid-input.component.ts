@@ -5,6 +5,8 @@ import * as fromRoot from '../../reducers/index';
 import { Message } from '../message.model';
 import { Player } from '../player.model';
 import * as chatActions from '../store/chat.actions';
+const uuidv1 = require('uuid/v1');
+import * as moment from 'moment';
 
 @Component({
   selector: 'eg-grid-input',
@@ -24,14 +26,16 @@ export class GridInputComponent implements OnInit {
 
   submit(){
     if(this.chatForm.valid){
-      let msg = <Message>{id: this.currentUser.id, msg: this.chatForm.value, isGif: false, parentMsgId: null }
+      let msg = <Message>{id: uuidv1(), senderId: this.currentUser.id, msg: this.chatForm.value, isGif: false, parentMsgId: null, timestamp: moment().format()  }
       if (/giphy/gi.test(this.chatForm.value)){
         msg.msg = msg.msg.replace(/\/giphy/g,'');
+        msg.isGif = true;
         this.store.dispatch(new chatActions.SubmitGif(msg));
       } else {
         this.store.dispatch(new chatActions.SubmitMessage(msg));
       }
-    
+      this.chatForm.setValue('');
     }
+  
   }
 }

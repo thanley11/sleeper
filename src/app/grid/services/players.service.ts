@@ -32,8 +32,8 @@ export class PlayersService {
 
     public addMessage(msg: Message): Observable<Message> {
         let url: string = `${this._url}/messages/`;
-
-        return this._http.put<Message>(url, msg);
+  
+        return this._http.post<Message>(url, msg);
     }
 
     public addGif(msg: Message): Observable<any> {

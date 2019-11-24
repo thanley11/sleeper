@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ChatMessage } from '../message.model';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'eg-grid-window',
@@ -12,8 +13,21 @@ export class GridWindowComponent {
     @Input() messages: ChatMessage[];
     constructor(private sanitizer:DomSanitizer){}
 
-    sanitize(url)
+    sanitizeAvatar(msg: ChatMessage)
     {
-    return this.sanitizer.bypassSecurityTrustUrl(url)
+      let avatar = _.get(msg.player, 'avatar');
+      if(avatar){
+        return this.sanitizer.bypassSecurityTrustUrl(avatar);
+      }
+      return '';
+    }
+
+    sanitizeGif(message: ChatMessage)
+    {
+      let msg = _.get(message, 'msg');
+      if(msg){
+        return this.sanitizer.bypassSecurityTrustUrl(msg);
+      }
+      return ''; 
     }
 }

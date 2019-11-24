@@ -15,7 +15,7 @@ export const initialState: State = adapter.getInitialState({ loading: false});
 
 export function reducer(state = initialState, action: chat.MessageActions): State {
   switch (action.type) {
-    case chat.ActionTypes.SUBMIT_MSG:
+    case chat.ActionTypes.SUBMIT_MSG_SUCCESS:
         return adapter.addOne(
         action.payload,
         {
