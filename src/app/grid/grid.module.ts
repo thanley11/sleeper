@@ -10,6 +10,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { GridEffects } from './store/grid.effects';
 import { HttpClientModule } from '@angular/common/http';
 import { GridInputComponent } from './component/grid-input.component';
+import { OrderByPipe } from './orderby.pipe';
 
 @NgModule({
     imports: [
@@ -25,7 +26,8 @@ import { GridInputComponent } from './component/grid-input.component';
     declarations: [
         GridComponent,
         GridWindowComponent,
-        GridInputComponent
+        GridInputComponent,
+        OrderByPipe
     ],
     exports: [
     ]

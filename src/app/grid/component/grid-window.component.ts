@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ChatMessage } from '../message.model';
 import * as _ from 'lodash';
+import * as moment from 'moment';
 
 @Component({
   selector: 'eg-grid-window',
@@ -29,5 +30,9 @@ export class GridWindowComponent {
         return this.sanitizer.bypassSecurityTrustUrl(msg);
       }
       return ''; 
+    }
+
+    formatDate(date:Date){
+      return moment(date).format('h:mm a');
     }
 }

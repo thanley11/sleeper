@@ -6,7 +6,7 @@ export class Message {
     public parentMsgId: string;
     public msg: string;
     public isGif: boolean;
-   
+    public timestamp: Date;
   }
 
   export class ChatMessage {

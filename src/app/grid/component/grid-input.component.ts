@@ -25,8 +25,8 @@ export class GridInputComponent implements OnInit {
   }
 
   submit(){
-    if(this.chatForm.valid){
-      let msg = <Message>{id: uuidv1(), senderId: this.currentUser.id, msg: this.chatForm.value, isGif: false, parentMsgId: null, timestamp: moment().format()  }
+    if(this.chatForm.valid && this.chatForm.value){
+      let msg = <Message>{id: uuidv1(), senderId: this.currentUser.id, msg: this.chatForm.value, isGif: false, parentMsgId: null, timestamp: moment().toDate()  }
       if (/giphy/gi.test(this.chatForm.value)){
         msg.msg = msg.msg.replace(/\/giphy/g,'');
         msg.isGif = true;

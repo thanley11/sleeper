@@ -5,9 +5,12 @@
         </header>
         <section class="chat-session">
           <ul class="message-list">
-            <li class="user-message" *ngFor="let message of messages | slice:-10">
-              <img [src]="sanitizeAvatar(message)"/>
+            <li class="user-message" *ngFor="let message of messages | slice:-10 | orderBy: 'timestamp': 'asc'">
+              <span class="user-image">
+                  <img [src]="sanitizeAvatar(message)"/>
+              </span>
               <span class="user-id">{{ message?.player?.first_name }} {{message?.player?.last_name}}</span>
+              <span class="user-time">{{ formatDate(message?.timestamp) }} </span>
               <ng-container *ngIf="!message?.isGif; else isGif">
                 <span class="user-message">{{ message.msg }}</span>
               </ng-container>
